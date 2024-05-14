@@ -1,6 +1,7 @@
 public class CAD_USD_ConverterTest {
 
     public static void main(String[] args) {
-        startConverter();
+        CAD_USD_Conversion startPROGRAM = new CAD_USD_Conversion();
+        startPROGRAM.startConverter();
     }
 }
