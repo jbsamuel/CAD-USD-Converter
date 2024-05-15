@@ -4,10 +4,11 @@ public class CAD_USD_Conversion {
     private double usd;
     private double cad;
 
-    public double startConverter(){
+    public void startConverter(){
         boolean endPROGRAM = false;
         Scanner scan = new Scanner(System.in);
         String userInput;
+        String userENDPROGRAM;
 
         do{
             /*Ask user for Currency*/
@@ -15,15 +16,34 @@ public class CAD_USD_Conversion {
             userInput = scan.nextLine();
             userInput = userInput.toLowerCase();
 
-            if (userInput.equals("cad")) {
+            if (userInput.equals("cad")) { //add check for if correct amount entered using getCAD
                 System.out.println("Please enter the CAD amount: ");
                 cad = scan.nextDouble();
                 setCAD(cad);
+                System.out.println("Your USD amount is: " + calculateTOUSD());
             }
-        }while(!endPROGRAM);
+            else if (userInput.equals("usd")) { //add check for if correct amount entered using getUSD
+                System.out.println("Please enter the USD amount: ");
+                usd = scan.nextDouble();
+                setUSD(usd);
+                System.out.println("Your CAD amount is: " + calculateTOCAD());
+            }
+            else{
+                System.out.println("Please enter a valid option");
+            }
+
+            //Prompt for another conversion
+            System.out.println("Would you like to convert again?");
+            userENDPROGRAM = scan.nextLine();
+            userENDPROGRAM = userENDPROGRAM.toLowerCase();
+            //Ends program
+            if (userENDPROGRAM.equals("no")) {
+                endPROGRAM = true;
+            }
+        }while(endPROGRAM);
     }
 
-    /*Converting CAD --> USD*/
+    /*CAD --> USD*/
     public void setCAD(double cadTOUSD){
         this.cad = cadTOUSD;
     }
@@ -31,17 +51,29 @@ public class CAD_USD_Conversion {
     public double getCAD(){
         return this.cad;
     }
-    
-    /*Converting CAD --> USD*/
+
+    //Calculate CAD to USD
+    public double calculateTOUSD(){
+        double exchangeRATECAD = 0.7309;
+
+        double totalUSD = getCAD() * exchangeRATECAD  ;
+        return totalUSD;
+    }
+
+    /*USD --> CAD*/
     public void setUSD(double usdTOCAD){
         this.usd = usdTOCAD;
     }
+
     public double getUSD(){
         return this.usd;
     }
 
-    public double calculateTOUSD(double ){
+    //Calculate USD to CAD
+    public double calculateTOCAD(){
+        double exchangeRATEUSD = 1.3683;
 
-        return totalUSD;
+        double totalCAD = getUSD() * exchangeRATEUSD  ;
+        return totalCAD;
     }
 }
