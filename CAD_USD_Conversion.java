@@ -1,3 +1,4 @@
+/* */
 import java.util.Scanner;
 
 public class CAD_USD_Conversion {
@@ -6,13 +7,16 @@ public class CAD_USD_Conversion {
 
     public void startConverter(){
         boolean endPROGRAM = false;
-        Scanner scan = new Scanner(System.in);
         String userInput;
         String userENDPROGRAM;
 
         do{
+            Scanner scan = new Scanner(System.in);
+            Scanner scan1 = new Scanner(System.in);
+
             /*Ask user for Currency*/
-            System.out.println("Would you like to convert from CAD –> USD or USD –> CAD?");
+            System.out.println("Would you like to convert from: CAD –> USD or USD –> CAD?");
+            System.out.println("Enter your choice: CAD or USD ");
             userInput = scan.nextLine();
             userInput = userInput.toLowerCase();
 
@@ -20,13 +24,13 @@ public class CAD_USD_Conversion {
                 System.out.println("Please enter the CAD amount: ");
                 cad = scan.nextDouble();
                 setCAD(cad);
-                System.out.println("Your USD amount is: " + calculateTOUSD());
+                System.out.println("Your USD amount is: " + calculateTOUSD() + "\n");
             }
             else if (userInput.equals("usd")) { //add check for if correct amount entered using getUSD
                 System.out.println("Please enter the USD amount: ");
                 usd = scan.nextDouble();
                 setUSD(usd);
-                System.out.println("Your CAD amount is: " + calculateTOCAD());
+                System.out.println("Your CAD amount is: " + calculateTOCAD() + "\n");
             }
             else{
                 System.out.println("Please enter a valid option");
@@ -34,13 +38,14 @@ public class CAD_USD_Conversion {
 
             //Prompt for another conversion
             System.out.println("Would you like to convert again?");
-            userENDPROGRAM = scan.nextLine();
+            userENDPROGRAM = scan1.nextLine();
             userENDPROGRAM = userENDPROGRAM.toLowerCase();
             //Ends program
             if (userENDPROGRAM.equals("no")) {
                 endPROGRAM = true;
             }
-        }while(endPROGRAM);
+        }while(!endPROGRAM);
+
     }
 
     /*CAD --> USD*/
