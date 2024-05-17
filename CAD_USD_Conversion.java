@@ -11,13 +11,13 @@ public class CAD_USD_Conversion {
         String userENDPROGRAM;
 
         do{
-            Scanner scan = new Scanner(System.in);
-            Scanner scan1 = new Scanner(System.in);
+            Scanner user = new Scanner(System.in);
+            Scanner userEnd = new Scanner(System.in);
 
             /*Ask user for Currency*/
             System.out.println("Would you like to convert from: CAD –> USD or USD –> CAD?");
             System.out.println("Enter your choice: CAD or USD ");
-            userInput = scan.nextLine();
+            userInput = user.nextLine();
             userInput = userInput.toLowerCase();
 
             if (userInput.equals("cad")) { //add check for if correct amount entered using getCAD
@@ -38,7 +38,7 @@ public class CAD_USD_Conversion {
 
             //Prompt for another conversion
             System.out.println("Would you like to convert again?");
-            userENDPROGRAM = scan1.nextLine();
+            userENDPROGRAM = userEnd.nextLine();
             userENDPROGRAM = userENDPROGRAM.toLowerCase();
             //Ends program
             if (userENDPROGRAM.equals("no")) {
