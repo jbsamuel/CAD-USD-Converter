@@ -22,13 +22,13 @@ public class CAD_USD_Conversion {
 
             if (userInput.equals("cad")) { //add check for if correct amount entered using getCAD
                 System.out.println("Please enter the CAD amount: ");
-                cad = scan.nextDouble();
+                cad = user.nextDouble();
                 setCAD(cad);
                 System.out.println("Your USD amount is: " + calculateTOUSD() + "\n");
             }
             else if (userInput.equals("usd")) { //add check for if correct amount entered using getUSD
                 System.out.println("Please enter the USD amount: ");
-                usd = scan.nextDouble();
+                usd = user.nextDouble();
                 setUSD(usd);
                 System.out.println("Your CAD amount is: " + calculateTOCAD() + "\n");
             }
